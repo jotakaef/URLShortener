@@ -1,68 +1,73 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# URL Shortener - [Francisco Vasconcelos](https://www.linkedin.com/in/francisco-vasconcelos-201b723/)
 
-## Available Scripts
+## Requiments
 
-In the project directory, you can run:
+> We want you to build a simple URL Shortener. Essentially, a very simple webpage, that will receive a URL input, and will return a reduced version of it. This shortened URL will point back to the URL Shortner service. If user tries to load this shortened URL, it will have to redirect the user to its original long URL, previously registered. The Shortened URL should be available for 30 days.
 
-### `npm start`
+## About the solution
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+For the solution, I've decided to create a backend using Spring Boot and a frontend with React and also I will use PostgreSQL as a database. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+I create a simple interface with a login page using JWT. The default user/password is admin/admin.
 
-### `npm test`
+The user has an interface to create the shortened URL in addition, the user can see all his shortened URL. When the user tries to use the Shortened URL he sees a redirection page that can both have a timer and the redirection event or an error message (URL not found/expired).
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Pre-requisites
 
-### `npm run build`
+Install [Java JDK 8+](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html), and add the environment variable JAVA_HOME.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install the latest [Maven](https://maven.apache.org/download.cgi?Preferred=ftp://apache.cs.utah.edu/apache.org/). It is recommended to set your Maven folder on your Path.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Install [PostgreSQL](https://www.postgresql.org/download/), the password for the user postgres should be "*123456*", next go to your installation folder/bin:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+psql -Upostgres -W
+#Enter the password "123456" and then create the new DB
+CREATE DATABASE fvenuitiurl; 
+```
 
-### `npm run eject`
+## How to Build
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+# Go to the root folder of the project, and run the command:
+mvn clean install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. If Node/npm isn't installed on the machine, Maven will do the installation.
+2. Then "npm install" will be fired for he /frontend folder. It may take a while until it finishes.
+3. The executable JAR file will be generated and then copied to :
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+[project root]\target\FranciscoVasconcelosVenuitiUrlShortener-1.0-SNAPSHOT.jar
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Running the Application
+### Backend
+```
+# On the \target folder:
+java -jar FranciscoVasconcelosVenuitiUrlShortener-1.0-SNAPSHOT.jar
+```
 
-## Learn More
+* It will be created a new Schema/table on your database.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The application will be available in [http://localhost:8080](HTTP://localhost:8080).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Frontend
+```
+# In the \frontend folder:
+npm start
+```
 
-### Code Splitting
+* It will start the React application on port 4200.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+The application will be available in [http://localhost:4200](HTTP://localhost:4200). (default user is admin/admin)
 
-### Analyzing the Bundle Size
+## Using the application
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+You can use the interface [http://localhost:4200](HTTP://localhost:4200) to save and access your shortened URL's or call directly the server [http://localhost:8080/yourShortenedURL](HTTP://localhost:8080/[yourShortenedURL]) to get the JSON response from the API for an existing Shortened URL.
 
-### Making a Progressive Web App
+**Enjoy!**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## License
+[Apache License v2](https://www.apache.org/licenses/LICENSE-2.0)
