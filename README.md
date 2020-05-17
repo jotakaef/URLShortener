@@ -10,19 +10,22 @@ For the solution, I've decided to create a backend using Spring Boot and a front
 
 I create a simple interface with a login page using JWT. The default user/password is admin/admin.
 
-The user has an interface to create the shortened URL in addition, the user can see all his shortened URL. When the user tries to use the Shortened URL he sees a redirection page that can both have a timer and the redirection event or an error message (URL not found/expired).
+The user has an interface to create the shortened URL he also can see all his shortened URL on the webpage. When the user tries to use the Shortened URL he sees a redirection page that can both have a timer/redirection event or an error message (URL not found/expired).
 
 ## Pre-requisites
 
 Install [Java JDK 8+](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html), and add the environment variable JAVA_HOME.
 
-Install the latest [Maven](https://maven.apache.org/download.cgi?Preferred=ftp://apache.cs.utah.edu/apache.org/). It is recommended to set your Maven folder on your Path.
+Install the latest [Maven](https://maven.apache.org/download.cgi?Preferred=ftp://apache.cs.utah.edu/apache.org/). It is recommended to set your Maven/bin folder on your Path.
 
-Install [PostgreSQL](https://www.postgresql.org/download/), the password for the user postgres should be "*123456*", next go to your installation folder/bin:
+Clone this repository.
+
+Install [PostgreSQL](https://www.postgresql.org/download/), **the password for the user postgres should be "123456"**, next go to your PostgreSQL installation folder/bin (or use your preferred SQL Client):
 
 ```
+# Connect to the database
 psql -Upostgres -W
-#Enter the password "123456" and then create the new DB
+# Enter the password "123456" and then create the new DB
 CREATE DATABASE fvenuitiurl; 
 ```
 
@@ -34,7 +37,7 @@ mvn clean install
 ```
 
 1. If Node/npm isn't installed on the machine, Maven will do the installation.
-2. Then "npm install" will be fired for he /frontend folder. It may take a while until it finishes.
+2. Then "npm install" will be fired on the */frontend* folder. It may take a while until it finishes.
 3. The executable JAR file will be generated and then copied to :
 
 ```
